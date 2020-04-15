@@ -35,21 +35,40 @@ continue 2
 expectPORTB 0x02
 checkResult
 
-test "PIND: 0x02, PINB0: 1  =>PINB:0x01"
+test "PIND: 0x02, PINB0: 1  =>PINB:0x00"
 setPIND 0x02
 setPINB 0x01
 continue 2
-expectPORTB 0x01
+expectPORTB 0x00
 checkResult
 
-test "PIND: 0x18, PINB0: 1 =>PINB:0x05"
-setPIND 0x18
+test "PIND: 0x23, PINB0: 0 =>PINB:0x02"
+setPIND 0x23
+setPINB 0x00
+continue 2
+expectPORTB 0x02
+checkResult
+
+test"WEIGHT > 70: PIND: 0xFF, PINB: 0x01 => PORTB: 0x02"
+setPIND 0xFF
 setPINB 0x01
 continue 2
-expectPORTB 0x05
+expectPORTB 0x02
 checkResult
 
+test"WEIGHT < 70 and WEIGHT > 5: PIND: 0x05, PINB: 0x01 => PORTB: 0x04"
+setPIND 0x5
+setPINB 0x01
+continue 2
+expectPORTB 0x04
+checkResult
 
+test"WEIGHT = 5: PIND: 0x02, PINB: 0x01 => PORTB: 0x00"
+setPIND 0x02
+setPINB 0x01
+continue 2
+expectPORTB 0x00
+checkResult
 
 
 
