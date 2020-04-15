@@ -14,32 +14,55 @@
 
 int main(void) {
     /* Insert DDR and PORT initializations */
-	//Inputs/Output
-	DDRD = 0x00; PORTD = 0xFF;
-	DDRB = 0xFE; PORTB = 0x01;
-
+	//Inputs
+	DDRA = 0x00; PORTA = 0xFF;
+	//DDRB = 0x00; PORTB = 0xFF;
+	//Output
+	DDRC = 0xFF; PORTC = 0x00;
     /* Insert your solution below */
-	unsigned char tempD = 0x00;
-	//unsigned char tempBI = 0x00;
-	unsigned char tempBO = 0x00;
+	unsigned char tempA = 0x00;
+	unsigned char tempC = 0x00;
 	//unsigned char tempB = 0x00;
 
     while (1) {
-	tempD = PIND;
-	//tempBI = PINB & 0x01;
-	tempBO = 0x00;
+	tempA = PINA & 0x0F;
+	tempC = 0x00;
 
-	if(tempD > 0x23 || tempD == 0x23){
-		tempBO = 0x02;
+	if(tempA == 0x00){
+		tempC = 0x40;
 	}
-	else if((tempD < 0x23) && ( (tempD > 0x03) || tempD == 0x03)){
-		tempBO = 0x04;
-	}		 	
+	//Levels 1-2
+	else if(tempA <3){
+		tempC = 0x60;	
+	}
+	//levels 3-4
+	else if(tempA < 5){
+		tempC = 0x70;
+	}
+	//levels 5-6
+	else if(tempA < 7){
+		tempC = 0x38;
+	}
+	//levels 7-9
+	else if(tempA < 10){
+		tempC = 0x3C;
+	}
+	//levels 10-12
+	else if(tempA < 13){
+		tempC = 0x3E;
+	}	
+	//levels 13-15
 	else{
-		tempBO = 0x00;
-	}			
+		tempC = 0x3F;
+	}
 	
-	PORTB = tempBO;
+	
+	
+	PORTC = tempC;	
+
+
+	
+
     }
     return 1;
 }

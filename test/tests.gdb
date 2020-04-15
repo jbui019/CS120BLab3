@@ -28,47 +28,30 @@ echo Running all tests..."\n\n
 
 # Add tests below
 
-Test "PIND: 0x23, PINB0: 0 => PINB: 0x02"
-setPIND 0x23
-setPINB 0x00
+Test "PINA: 0x03 => PINC:0x70 "
+setPINA 0x03
 continue 2
-expectPORTB 0x02
+expectPORTC 0x70
 checkResult
 
-test "PIND: 0x02, PINB0: 1  =>PINB:0x00"
-setPIND 0x02
-setPINB 0x01
+test "PINA: 0x08 => PINC: 0x3C"
+setPINA 0x08
 continue 2
-expectPORTB 0x00
+expectPORTC 0x3C
 checkResult
 
-test "PIND: 0x23, PINB0: 0 =>PINB:0x02"
-setPIND 0x23
-setPINB 0x00
+test "PINA: 0x02 => PINC: 0x60"
+setPINA 0x02
 continue 2
-expectPORTB 0x02
+expectPORTC 0x60
 checkResult
 
-test"WEIGHT > 70: PIND: 0xFF, PINB: 0x01 => PORTB: 0x02"
-setPIND 0xFF
-setPINB 0x01
+test "PINA: 0x00 => PINC: 0x40"
+setPINA 0x00
 continue 2
-expectPORTB 0x02
+expectPORTC 0x40
 checkResult
 
-test"WEIGHT < 70 and WEIGHT > 5: PIND: 0x05, PINB: 0x01 => PORTB: 0x04"
-setPIND 0x5
-setPINB 0x01
-continue 2
-expectPORTB 0x04
-checkResult
-
-test"WEIGHT = 5: PIND: 0x02, PINB: 0x01 => PORTB: 0x00"
-setPIND 0x02
-setPINB 0x01
-continue 2
-expectPORTB 0x00
-checkResult
 
 
 

@@ -29,7 +29,7 @@ int main(void) {
 	tempC = 0x00;
 
 	if(tempA == 0x00){
-		tempC = 0x00;
+		tempC = 0x40;
 	}
 	//Levels 1-2
 	else if(tempA <3){
