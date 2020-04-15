@@ -1,7 +1,7 @@
-Breakpoint 1 at 0x154: file source/main.c, line 27.
+Breakpoint 1 at 0x148: file source/main.c, line 27.
 Note: automatically using hardware breakpoints for read-only addresses.
 ======================================================
 Running all tests..."
 
-"PINA: 0x33 =>PINB:0x03, PINC:0x30 "..."PINA: 0x78 =>PINB:0x07 PINC: 0x80"..."PINA: 0x3E =>PINB:0x03 PINC: 0xE0"..."PINA: 0x76 =>PINB:0x07 PINC: 0x60"...======================================================
+"PIND: 0x23, PINB0: 0 => PINB: 0x02"..."PIND: 0x02, PINB0: 1  =>PINB:0x01"..."PIND: 0x18, PINB0: 1 =>PINB:0x05"...======================================================
 Quitting: Remote doesn't know how to detach
